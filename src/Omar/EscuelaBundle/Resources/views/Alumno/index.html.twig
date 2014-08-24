@@ -1,0 +1,44 @@
+{% extends "OmarEscuelaBundle::layout.html.twig" %}
+
+{% block content %}
+	<h1>Lista de alumnos</h1>
+	<hr/>
+	<br/>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Matricula</th>
+				<th>Nombre</th>
+				<th>Semestre</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for entity in entities %}
+			<tr>
+				<td><a href="{{ path('alumno_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+				<td>{{ entity.matricula }}</td>
+				<td>{{ entity.nombrealumno }}</td>
+				<td>{{ entity.semestre }}°</td>
+				<td>
+					<div class="btn-group btn-group-xs">
+						<a class="btn btn-default" href="{{ path('alumno_show', { 'id': entity.id }) }}">Ver</a>
+						<a class="btn btn-default" href="{{ path('alumno_edit', { 'id': entity.id }) }}">Editar</a>							
+					</div>
+				</td>					
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+
+	<ul>
+		<li>
+			
+			<a class="btn btn-primary" href="{{ path('alumno_new') }}">
+				Agregar alumno
+			</a>
+			
+		</li>
+	</ul>
+{% endblock %}    

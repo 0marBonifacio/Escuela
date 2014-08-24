@@ -1,0 +1,17 @@
+{% extends "OmarEscuelaBundle::layout.html.twig" %}
+
+{% block content %}
+    <h1>Modificar datos del Maestro</h1>
+	<hr/>
+	<br/>
+    {{ form(edit_form) }}
+    {{ form(delete_form) }}
+    <br/>
+    <ul class="record_actions">
+		<li>
+			<a class="btn btn-primary" href="{{ path('maestro') }}">
+				Regresar
+			</a>
+		</li>
+	</ul>
+{% endblock %}

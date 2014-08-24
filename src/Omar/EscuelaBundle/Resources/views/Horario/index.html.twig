@@ -1,0 +1,38 @@
+{% extends "OmarEscuelaBundle::layout.html.twig" %}
+
+{% block content %}
+    <h1>Lista de horarios</h1>
+	<hr/>
+	<br/>
+	<table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Hora</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('horario_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.hora }}</td>
+                <td>
+                <div class="btn-group btn-group-xs">
+                    <a class="btn btn-default" href="{{ path('horario_show', { 'id': entity.id }) }}">Ver</a>                    
+					<a class="btn btn-default" href="{{ path('horario_edit', { 'id': entity.id }) }}">Editar</a>                    
+                </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+			<li>
+				<a class="btn btn-primary" href="{{ path('horario_new') }}">
+					Agregar horario
+				</a>
+			</li>
+		</ul>
+    {% endblock %}

@@ -1,0 +1,27 @@
+{% extends "OmarEscuelaBundle::layout.html.twig" %}
+
+{% block content %}
+    <h1>Grupo</h1>
+    <hr/>
+    <br/>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombregrupo</th>
+                <td>{{ entity.nombregrupo }}</td>
+            </tr>
+        </tbody>
+    </table>	
+    <br/>
+    <div class="btn-group">		
+			<a class="btn btn-default" href="{{ path('grupo') }}">Regresar</a>
+			<a class="btn btn-default" href="{{ path('grupo_edit', { 'id': entity.id }) }}">
+				Editar
+			</a>		
+			<a class="btn">{{ form(delete_form) }}</a>
+	</div>
+{% endblock %}

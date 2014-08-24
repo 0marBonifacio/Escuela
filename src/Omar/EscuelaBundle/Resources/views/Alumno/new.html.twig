@@ -1,0 +1,16 @@
+{% extends "OmarEscuelaBundle::layout.html.twig" %}
+
+{% block content %}
+    <h1>Agregar nuevo alumno</h1>
+	<hr/>
+	<br/>
+	{{ form(form) }}
+	<br/>
+    <ul class="record_actions">
+		<li>
+			<a class="btn btn-primary" href="{{ path('alumno') }}">
+				Regresar a la lista
+			</a>
+		</li>
+	</ul>
+{% endblock %}

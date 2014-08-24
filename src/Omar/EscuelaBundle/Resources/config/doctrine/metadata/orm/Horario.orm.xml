@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Horario" table="Horario">
+    <indexes>
+      <index name="idAlumno" columns="idAlumno"/>
+      <index name="idGrupo" columns="idGrupo"/>
+      <index name="idMateria" columns="idMateria"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="hora" type="string" column="hora" length="5" nullable="false"/>
+    <many-to-one field="idgrupo" target-entity="Grupo">
+      <join-columns>
+        <join-column name="idGrupo" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idalumno" target-entity="Alumno">
+      <join-columns>
+        <join-column name="idAlumno" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idmateria" target-entity="Materia">
+      <join-columns>
+        <join-column name="idMateria" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

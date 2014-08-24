@@ -1,0 +1,38 @@
+{% extends "OmarEscuelaBundle::layout.html.twig" %}
+{% block content %}
+    <h1>Lista de Grupos</h1>
+
+    <table class="table table_hover ">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('grupo_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.nombregrupo }}</td>
+                <td>
+                <ul>
+                    <div class="btn-group btn-group-xs">
+                        <a class="btn btn-default" href="{{ path('grupo_show', { 'id': entity.id }) }}">Ver</a>                    
+                        <a class="btn btn-default" href="{{ path('grupo_edit', { 'id': entity.id }) }}">Editar</a>
+                    </div>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a class="btn btn-primary" href="{{ path('grupo_new') }}">
+                Agregar nuevo grupo
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

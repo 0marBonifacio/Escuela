@@ -1,0 +1,17 @@
+{% extends "OmarEscuelaBundle::layout.html.twig" %}
+
+{% block content %}
+    <h1>Nuevo grupo</h1>
+    <hr/>
+	<br/>
+    {{ form(form) }}
+	<hr/>
+	<br/>
+    <ul class="record_actions">
+		<li>
+			<a class="btn btn-primary" href="{{ path('grupo') }}">
+				Regresar
+			</a>
+		</li>
+	</ul>
+{% endblock %}

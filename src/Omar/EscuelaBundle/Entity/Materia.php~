@@ -1,0 +1,42 @@
+<?php
+
+namespace Omar\EscuelaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Materia
+ *
+ * @ORM\Table(name="Materia", indexes={@ORM\Index(name="idMaestro", columns={"idMaestro"})})
+ * @ORM\Entity
+ */
+class Materia
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombreMateria", type="string", length=45, nullable=false)
+     */
+    private $nombremateria;
+
+    /**
+     * @var \Maestro
+     *
+     * @ORM\ManyToOne(targetEntity="Maestro")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idMaestro", referencedColumnName="id")
+     * })
+     */
+    private $idmaestro;
+
+
+}

@@ -1,0 +1,37 @@
+{% extends "OmarEscuelaBundle::layout.html.twig" %}
+{% block content %}
+    <h1>Lista de Maestros</h1>
+	<hr/>
+	<br/>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre del maestro</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('maestro_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.nombremaestro }}</td>
+                <td>
+					<div class="btn-group btn-group-xs">                    
+                        <a class="btn btn-default" href="{{ path('maestro_show', { 'id': entity.id }) }}">Ver</a>                    
+                        <a class="btn btn-default" href="{{ path('maestro_edit', { 'id': entity.id }) }}">Editar</a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a class="btn btn-primary" href="{{ path('maestro_new') }}">
+                Agregar nuevo Maestro
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

@@ -1,0 +1,5 @@
+omar_escuela:
+    resource: "@OmarEscuelaBundle/Controller/"
+    type:     annotation
+    prefix:   /
+

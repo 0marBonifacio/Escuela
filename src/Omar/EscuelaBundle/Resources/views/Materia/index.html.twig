@@ -1,0 +1,38 @@
+{% extends "OmarEscuelaBundle::layout.html.twig" %}
+
+{% block content %}
+    <h1>Lista de Materias</h1>
+	<hr/>
+	<br/>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre de la Materia</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('materia_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.nombremateria }}</td>
+                <td>
+					<div class="btn-group btn-group-xs">						
+						<a class="btn btn-default" href="{{ path('materia_show', { 'id': entity.id }) }}">Ver</a>						
+						<a class="btn btn-default" href="{{ path('materia_edit', { 'id': entity.id }) }}">Editar</a>
+					</div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+	<br/>
+    <ul>
+        <li>
+            <a class="btn btn-primary" href="{{ path('materia_new') }}">
+                Agregar nueva materia
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

@@ -1,0 +1,62 @@
+<?php
+
+namespace Omar\EscuelaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Horario
+ *
+ * @ORM\Table(name="Horario", indexes={@ORM\Index(name="idAlumno", columns={"idAlumno"}), @ORM\Index(name="idGrupo", columns={"idGrupo"}), @ORM\Index(name="idMateria", columns={"idMateria"})})
+ * @ORM\Entity
+ */
+class Horario
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="hora", type="string", length=5, nullable=false)
+     */
+    private $hora;
+
+    /**
+     * @var \Materia
+     *
+     * @ORM\ManyToOne(targetEntity="Materia")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idMateria", referencedColumnName="id")
+     * })
+     */
+    private $idmateria;
+
+    /**
+     * @var \Alumno
+     *
+     * @ORM\ManyToOne(targetEntity="Alumno")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idAlumno", referencedColumnName="id")
+     * })
+     */
+    private $idalumno;
+
+    /**
+     * @var \Grupo
+     *
+     * @ORM\ManyToOne(targetEntity="Grupo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idGrupo", referencedColumnName="id")
+     * })
+     */
+    private $idgrupo;
+
+
+}
